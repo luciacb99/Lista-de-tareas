@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Color de fondo general */
+    margin: 0;
+    padding: 20px; /* Margen alrededor del contenido */
+    display: flex; /* Utiliza flexbox para centrar contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+  }
+  
+  .container {
+    max-width: 600px; /* Máximo ancho */
+    width: 100%; /* Ancho del contenedor */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: white; /* Fondo blanco para el contenedor */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto 3D */
+    display: flex; /* Flexbox para el contenedor principal */
+    flex-direction: column; /* Coloca los elementos en una columna */
+    align-items: center; /* Centra horizontalmente */
+  }
+  
+  h1 {
+    text-align: center; /* Centra el título */
+    color: #333; /* Color del texto del título */
+    font-size: 2.5rem; /* Aumenta el tamaño del texto del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+  }
+  
+  .task-input {
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    width: 100%; /* Ocupa el 100% del ancho */
+    margin-bottom: 20px; /* Margen inferior */
+  }
+  
+  input[type="text"] {
+    flex: 1; /* Permite que el input ocupe el espacio disponible */
+    padding: 10px; /* Espaciado interno */
+    margin-right: 10px; /* Margen derecho */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  select {
+    padding: 10px; /* Espaciado interno */
+    margin-right: 10px; /* Margen derecho */
+    border: 1px solid #ccc; /* Borde del select */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  button {
+    padding: 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    background-color: #28a745; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s; /* Transición suave al cambiar el color */
+  }
+  
+  button:hover {
+    background-color: #218838; /* Color al pasar el cursor sobre el botón */
+  }
+  
+  .task-list {
+    margin: 20px 0; /* Margen superior e inferior */
+    width: 100%; /* Ocupa el 100% del ancho */
+  }
+  
+  .task {
+    display: flex; /* Utiliza flexbox para organizar los elementos */
+    align-items: center; /* Alinea verticalmente los elementos */
+    padding: 10px; /* Espaciado interno */
+    border-bottom: 1px solid #ddd; /* Borde inferior */
+    transition: background-color 0.3s; /* Transición suave al cambiar el color */
+  }
+  
+  .task.done span {
+    text-decoration: line-through; /* Tacha el texto de tareas completadas */
+    color: #aaa; /* Color del texto tachado */
+  }
+  
+  /* Colores según prioridad */
+  .task.Normal {
+    background-color: #e2f0d8; /* Color verde claro para tareas normales */
+  }
+  
+  .task.Importante {
+    background-color: #f8d7da; /* Color rojo claro para tareas importantes */
+  }
+  
+  .clear-button {
+    background-color: #dc3545; /* Color de fondo del botón de limpiar */
+    padding: 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  }
+  
+  .clear-button:hover {
+    background-color: #c82333; /* Color al pasar el cursor sobre el botón de limpiar */
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 600px) {
+    .task-input {
+      flex-direction: column; /* Cambia la dirección de los elementos en pantallas pequeñas */
+    }
+  
+    input[type="text"],
+    select,
+    button {
+      width: 100%; /* Ocupa el 100% del ancho */
+      margin: 5px 0; /* Margen vertical */
+    }
+  }
+
+  
