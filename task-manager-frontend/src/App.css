@@ -12,7 +12,7 @@ body {
   font-size: 36px;
   color: transparent;
   background-color: #f19cad;
-  background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(255, 255, 255, .5) 25px, rgba(255, 255, 255, .5) 50px);    
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(231, 115, 144, 0.863) 25px, rgba(223, 56, 106, 0.788) 50px);    
   background-clip: text;
   animation: color 50s linear infinite;
   background-size: 200%;    

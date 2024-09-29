@@ -80,7 +80,7 @@ function App() {
             </div>
           ))}
         </div>
-        <button className="clear-button" onClick={clearDoneTasks}>Eliminar</button>
+        <button className="clear-button" onClick={clearDoneTasks}>Borrar</button>
       </div>
     </div>
   );
