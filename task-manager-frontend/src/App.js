@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'; // Asegúrate de tener un archivo CSS
+import './App.css';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -12,6 +12,12 @@ function App() {
   }, []);
 
   const addTask = () => {
+    
+    if (!description.trim()) {
+      alert('No se puede agregar una  tarea vacia');
+      return;
+    }
+  
     const newTask = {
       id: Date.now(),
       description,
@@ -40,38 +46,42 @@ function App() {
   };
 
   return (
-    <div className="container">
-      <h1>Tareas Pendientes</h1>
-      <div className="task-input">
-        <input
-          type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          placeholder="Escribe una tarea..."
-          maxLength="255"
-        />
-        <select
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-        >
-          <option value="Normal">Normal</option>
-          <option value="Importante">Importante</option>
-        </select>
-        <button onClick={addTask}>Agregar</button>
+    <div>
+      <header className="header">
+        <h1>Lista De Tareas</h1>
+      </header>
+      <div className="container">
+        <div className="task-input">
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Escribe una tarea..."
+            maxLength="255"
+          />
+          <select
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+          >
+            <option value="Normal">Normal</option>
+            <option value="Importante">Importante</option>
+          </select>
+          <button onClick={addTask}>+</button>
+        </div>
+        <div className="task-list">
+          {tasks.map(task => (
+            <div key={task.id} className={`task ${task.done ? 'done' : ''} ${task.priority}`}>
+              <input
+                type="checkbox"
+                checked={task.done}
+                onChange={() => toggleTask(task.id)}
+              />
+              <span>{task.description} ({task.dateAdded.toLocaleString()})</span>
+            </div>
+          ))}
+        </div>
+        <button className="clear-button" onClick={clearDoneTasks}>Eliminar</button>
       </div>
-      <div className="task-list">
-        {tasks.map(task => (
-          <div key={task.id} className={`task ${task.done ? 'done' : ''} ${task.priority}`}>
-            <input
-              type="checkbox"
-              checked={task.done}
-              onChange={() => toggleTask(task.id)}
-            />
-            <span>{task.description} ({task.dateAdded.toLocaleString()})</span>
-          </div>
-        ))}
-      </div>
-      <button className="clear-button" onClick={clearDoneTasks}>Eliminar</button>
     </div>
   );
 }

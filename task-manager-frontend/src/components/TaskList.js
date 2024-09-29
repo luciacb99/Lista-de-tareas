@@ -5,18 +5,18 @@ import TaskItem from './TaskItem';
 const TaskList = () => {
   const [tasks, setTasks] = useState([]);
 
-  // Cargar las tareas desde el servidor
+  
   useEffect(() => {
     const fetchTasks = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/tasks');
         setTasks(response.data);
-        localStorage.setItem('tasks', JSON.stringify(response.data)); // Guardar en localStorage
+        localStorage.setItem('tasks', JSON.stringify(response.data)); 
       } catch (error) {
         console.error('Error al cargar las tareas', error);
         const storedTasks = JSON.parse(localStorage.getItem('tasks'));
         if (storedTasks) {
-          setTasks(storedTasks); // Cargar desde localStorage si hay un error
+          setTasks(storedTasks); 
         }
       }
     };
@@ -24,7 +24,6 @@ const TaskList = () => {
     fetchTasks();
   }, []);
 
-  // Añadir una nueva tarea
   const addTask = async (newTask) => {
     try {
       const response = await axios.post('http://localhost:5000/api/tasks', newTask);
@@ -34,7 +33,7 @@ const TaskList = () => {
     }
   };
 
-  // Marcar o desmarcar una tarea como completada
+
   const toggleTask = async (id) => {
     const updatedTasks = tasks.map((task) => {
       if (task.id === id) {
@@ -43,7 +42,7 @@ const TaskList = () => {
       return task;
     });
     setTasks(updatedTasks);
-    localStorage.setItem('tasks', JSON.stringify(updatedTasks)); // Actualizar localStorage
+    localStorage.setItem('tasks', JSON.stringify(updatedTasks));
 
     try {
       await axios.put('http://localhost:5000/api/tasks', { id, done: !tasks.find(task => task.id === id).done });
@@ -52,7 +51,6 @@ const TaskList = () => {
     }
   };
 
-  // Eliminar una tarea completada
   const deleteTask = async (id) => {
     setTasks(tasks.filter(task => task.id !== id));
     localStorage.setItem('tasks', JSON.stringify(tasks.filter(task => task.id !== id)));
@@ -63,8 +61,6 @@ const TaskList = () => {
       console.error('Error al eliminar la tarea', error);
     }
   };
-
-  // Eliminar todas las tareas completadas
   const clearCompletedTasks = async () => {
     setTasks(tasks.filter(task => !task.done));
 

@@ -1,121 +1,176 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4; /* Color de fondo general */
-    margin: 0;
-    padding: 20px; /* Margen alrededor del contenido */
-    display: flex; /* Utiliza flexbox para centrar contenido */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-  }
-  
-  .container {
-    max-width: 600px; /* Máximo ancho */
-    width: 100%; /* Ancho del contenedor */
-    padding: 20px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    background-color: white; /* Fondo blanco para el contenedor */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto 3D */
-    display: flex; /* Flexbox para el contenedor principal */
-    flex-direction: column; /* Coloca los elementos en una columna */
-    align-items: center; /* Centra horizontalmente */
-  }
-  
-  h1 {
-    text-align: center; /* Centra el título */
-    color: #333; /* Color del texto del título */
-    font-size: 2.5rem; /* Aumenta el tamaño del texto del título */
-    margin-bottom: 20px; /* Espacio debajo del título */
-  }
-  
-  .task-input {
-    display: flex; /* Utiliza flexbox para organizar los elementos */
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
-    width: 100%; /* Ocupa el 100% del ancho */
-    margin-bottom: 20px; /* Margen inferior */
-  }
-  
-  input[type="text"] {
-    flex: 1; /* Permite que el input ocupe el espacio disponible */
-    padding: 10px; /* Espaciado interno */
-    margin-right: 10px; /* Margen derecho */
-    border: 1px solid #ccc; /* Borde del input */
-    border-radius: 5px; /* Bordes redondeados */
-  }
-  
-  select {
-    padding: 10px; /* Espaciado interno */
-    margin-right: 10px; /* Margen derecho */
-    border: 1px solid #ccc; /* Borde del select */
-    border-radius: 5px; /* Bordes redondeados */
-  }
-  
-  button {
-    padding: 10px; /* Espaciado interno */
-    border: none; /* Sin borde */
-    background-color: #28a745; /* Color de fondo del botón */
-    color: white; /* Color del texto del botón */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-    transition: background-color 0.3s; /* Transición suave al cambiar el color */
-  }
-  
-  button:hover {
-    background-color: #218838; /* Color al pasar el cursor sobre el botón */
-  }
-  
-  .task-list {
-    margin: 20px 0; /* Margen superior e inferior */
-    width: 100%; /* Ocupa el 100% del ancho */
-  }
-  
-  .task {
-    display: flex; /* Utiliza flexbox para organizar los elementos */
-    align-items: center; /* Alinea verticalmente los elementos */
-    padding: 10px; /* Espaciado interno */
-    border-bottom: 1px solid #ddd; /* Borde inferior */
-    transition: background-color 0.3s; /* Transición suave al cambiar el color */
-  }
-  
-  .task.done span {
-    text-decoration: line-through; /* Tacha el texto de tareas completadas */
-    color: #aaa; /* Color del texto tachado */
-  }
-  
-  /* Colores según prioridad */
-  .task.Normal {
-    background-color: #e2f0d8; /* Color verde claro para tareas normales */
-  }
-  
-  .task.Importante {
-    background-color: #f8d7da; /* Color rojo claro para tareas importantes */
-  }
-  
-  .clear-button {
-    background-color: #dc3545; /* Color de fondo del botón de limpiar */
-    padding: 10px; /* Espaciado interno */
-    border: none; /* Sin borde */
-    color: white; /* Color del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-  }
-  
-  .clear-button:hover {
-    background-color: #c82333; /* Color al pasar el cursor sobre el botón de limpiar */
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 600px) {
-    .task-input {
-      flex-direction: column; /* Cambia la dirección de los elementos en pantallas pequeñas */
+  background-image: url(.//components/img/pastel-pink-oil-paint-textured-background.jpg);
+  background-color: #735acb;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 40px;
+  font-size: 36px;
+  color: transparent;
+  background-color: #f19cad;
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(255, 255, 255, .5) 25px, rgba(255, 255, 255, .5) 50px);    
+  background-clip: text;
+  animation: color 50s linear infinite;
+  background-size: 200%;    
+}
+
+@keyframes color {
+    from {
+        background-position: 0% 50%;
     }
-  
-    input[type="text"],
-    select,
-    button {
-      width: 100%; /* Ocupa el 100% del ancho */
-      margin: 5px 0; /* Margen vertical */
+
+    to {
+        background-position: 100% 50%;
     }
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-input {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+  
+}
+
+.task-input input,
+.task-input select {
+  padding: 10px;
+  border-radius: 30px;
+  border: none;
+  flex: 1;
+  margin-right: 10px;
+  font-size: 1em;
+  outline: none;
+
+}
+
+.task.Importante {
+  background-color: #ffc5ca;
+  border-left: 5px solid #fd7396;
+}
+
+
+.task-input button {
+  background-color: #ffc5ca;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.task-input button:hover {
+  background-color: #fd7396;
+
+}
+
+.task-list {
+  width: 100%;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task.done {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.task input[type="checkbox"] {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.task .delete {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clear-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #ffc5ca;
+  color: black;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+.clear-button:hover {
+  background-color: #fd7396;
+}
+
+@media (max-width: 768px) {
+  .header {
+    font-size: 28px;
+    padding: 30px;
   }
 
-  
+  .container {
+    padding: 15px;
+  }
+
+  .task-list .task {
+    font-size: 1em;
+  }
+
+  .clear-button {
+    padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 24px;
+    padding: 20px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .task-list .task {
+    font-size: 0.9em;
+  }
+
+  .clear-button {
+    padding: 6px 12px;
+  }
+}
